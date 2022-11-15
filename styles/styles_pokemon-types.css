@@ -1,0 +1,188 @@
+:root {
+    --bug-bg: 56,145,76;
+    --dark-bg: 87,86,118;
+    --dragon-bg: 97,202,217;
+    --electric-bg: 251,251,114;
+    --fairy-bg: 234,19,105;
+    --fighting-bg: 239,97,56;
+    --fire-bg: 253,76,90;
+    --flying-bg: 147,178,199;
+    --ghost-bg: 144,103,144;
+    --grass-bg: 39,203,79;
+    --ground-bg: 110,73,31;
+    --ice-bg: 215,239,250;
+    --normal-bg: 201,152,167;
+    --poison-bg: 155,105,217;
+    --psychic-bg: 248,28,145;
+    --rock-bg: 139,62,33;
+    --steel-bg: 66,189,148;
+    --water-bg: 134,168,252;
+
+    --bug-bd: #1C4B27;
+    --dark-bd: #040706;
+    --dragon-bd: #448B95;
+    --electric-bd: #E3E328;
+    --fairy-bd: #961843;
+    --fighting-bd: #993E24;
+    --fire-bd: #AB1F23;
+    --flying-bd: #4A677D;
+    --ghost-bd: #33336B;
+    --grass-bd: #127B3D;
+    --ground-bd: #A9702C;
+    --ice-bd: #86D2F5;
+    --normal-bd: #75515B;
+    --poison-bd: #5E2D88;
+    --psychic-bd: #A22B6B;
+    --rock-bd: #481907;
+    --steel-bd: #5F756D;
+    --water-bd: #1552E2;
+
+    --opacity: 0.7;
+    --border-size: 3px;
+}
+
+.bug-box {
+    background-color: rgba(var(--bug-bg), var(--opacity));
+    border: solid var(--border-size) var(--bug-bd);
+}
+.bug-badge {
+    background-color: rgb(var(--bug-bg));
+}
+
+.dark-box {
+    background-color: rgba(var(--dark-bg), var(--opacity));
+    border: solid var(--border-size) var(--dark-bd);
+}
+.dark-badge {
+    background-color: rgb(var(--dark-bg));
+}
+
+.dragon-box {
+    background-color: rgba(var(--dragon-bg), var(--opacity));
+    border: solid var(--border-size) var(--dragon-bd);
+}
+.dragon-badge {
+    background-color: rgb(var(--dragon-bg));
+}
+
+.electric-box {
+    background-color: rgba(var(--electric-bg), var(--opacity));
+    border: solid var(--border-size) var(--electric-bd);
+    color: black;
+}
+.electric-badge {
+    background-color: rgb(var(--electric-bg));
+}
+
+.fairy-box {
+    background-color: rgba(var(--fairy-bg), var(--opacity));
+    border: solid var(--border-size) var(--fairy-bd);
+}
+.fairy-badge {
+    background-color: rgb(var(--fairy-bg));
+}
+
+.fighting-box {
+    background-color: rgba(var(--fighting-bg), var(--opacity));
+    border: solid var(--border-size) var(--fighting-bd);
+}
+.fighting-badge {
+    background-color: rgb(var(--fighting-bg));
+}
+
+.fire-box {
+    background-color: rgba(var(--fire-bg), var(--opacity));
+    border: solid var(--border-size) var(--fire-bd);
+}
+.fire-badge {
+    background-color: rgb(var(--fire-bg));
+}
+
+.flying-box {
+    background-color: rgba(var(--flying-bg), var(--opacity));
+    border: solid var(--border-size) var(--flying-bd);
+}
+.flying-badge {
+    background-color: rgb(var(--flying-bg));
+}
+
+.ghost-box {
+    background-color: rgba(var(--ghost-bg), var(--opacity));
+    border: solid var(--border-size) var(--ghost-bd);
+}
+.ghost-badge {
+    background-color: rgb(var(--ghost-bg));
+}
+
+.grass-box {
+    background-color: rgba(var(--grass-bg), var(--opacity));
+    border: solid var(--border-size) var(--grass-bd);
+}
+.grass-badge {
+    background-color: rgb(var(--grass-bg));
+}
+
+.ground-box {
+    background-color: rgba(var(--ground-bg), var(--opacity));
+    border: solid var(--border-size) var(--ground-bd);
+}
+.ground-badge {
+    background-color: rgb(var(--ground-bg));
+}
+
+.ice-box {
+    background-color: rgba(var(--ice-bg), var(--opacity));
+    border: solid var(--border-size) var(--ice-bd);
+    color: black;
+}
+.ice-badge {
+    background-color: rgb(var(--ice-bg));
+}
+
+.normal-box {
+    background-color: rgba(var(--normal-bg), var(--opacity));
+    border: solid var(--border-size) var(--normal-bd);
+}
+.normal-badge {
+    background-color: rgb(var(--normal-bg));
+}
+
+.poison-box {
+    background-color: rgba(var(--poison-bg), var(--opacity));
+    border: solid var(--border-size) var(--poison-bd);
+}
+.poison-badge {
+    background-color: rgb(var(--poison-bg));
+}
+
+.psychic-box {
+    background-color: rgba(var(--psychic-bg), var(--opacity));
+    border: solid var(--border-size) var(--psychic-bd);
+}
+.psychic-badge {
+    background-color: rgb(var(--psychic-bg));
+}
+
+.rock-box {
+    background-color: rgba(var(--rock-bg), var(--opacity));
+    border: solid var(--border-size) var(--rock-bd);
+}
+.rock-badge {
+    background-color: rgb(var(--rock-bg));
+}
+
+.steel-box {
+    background-color: rgba(var(--steel-bg), var(--opacity));
+    border: solid var(--border-size) var(--steel-bd);
+}
+.steel-badge {
+    background-color: rgb(var(--steel-bg));
+}
+
+.water-box {
+    background-color: rgba(var(--water-bg), var(--opacity));
+    border: solid var(--border-size) var(--water-bd);
+}
+.water-badge {
+    background-color: rgb(var(--water-bg));
+}
