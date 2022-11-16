@@ -16,24 +16,25 @@
 
 <body onload="init()">
     <div id="main-container">
-        <div class="card-overview electric-box" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-overview electric-box" data-bs-toggle="modal" data-bs-target="#modalDetails">
+            <!-- <div class="card-overview--bg-container"> -->
+                <img class="bg-img-type img-type--overview" src="./img/type_electric.png">
+            <!-- </div> -->
             <div class="card-overview--info">
                 <h2>Bulbasaurus Rex</h2>
                 <div class="pokemon-type electric-badge">grass</div>
-            </div>
-            <div class="card-overview--bg-container">
-                <img class="card-overview--img-type" src="./img/type_electric.png">
+                <div class="pokemon-type electric-badge">psychic</div>
             </div>
             <img class="card-overview--img-pokemon" src="./img/1.png">
         </div>
 
-        <div class="card-overview ice-box">
+        <div class="card-overview ice-box" data-bs-toggle="modal" data-bs-target="#modalDetails">
+            <!-- <div class="card-overview--bg-container"> -->
+                <img class="bg-img-type img-type--overview" src="./img/type_ice.png">
+            <!-- </div> -->
             <div class="card-overview--info">
                 <h2>Bulbasaurus Rex</h2>
                 <div class="pokemon-type ice-badge">grass</div>
-            </div>
-            <div class="card-overview--bg-container">
-                <img class="card-overview--img-type" src="./img/type_ice.png">
             </div>
             <img class="card-overview--img-pokemon" src="./img/1.png">
         </div>
@@ -60,30 +61,7 @@
     <!-- END: GRID -->
 
     <!-- template TABS -->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">About</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Stats</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
-                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Moves</button>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-            tabindex="0">Hier gibt's die Basisdaten</div>
-        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">Hier
-            steht was zur Statistik
-        </div>
-        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">Hier
-            gibt's die Moves
-        </div>
-    </div>
+    
     <!-- END: TABS -->
 
 
@@ -99,12 +77,60 @@
     <!-- END: PROGRESS BARS -->
 
     <!-- MODAL -->
-    <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    <div class="modal fade" id="modalDetails" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="data-container bug-box">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="modal-header">
+                        <img class="bg-img-type img-type--modal" src="./img/type_electric.png">
+                        <div id="modal-header--info-content">
+                            <div id="modal-header--info-name" class="d-flex justify-content-between align-items-center">
+                                <h2 id="info-name">Blablasaurus</h2>
+                                <span id="info-id">#019</span>
+                            </div>
+                            <div id="modal-header--info-type" class="d-flex">
+                                <div class="pokemon-type psychic-badge">psychic</div>
+                                <div class="pokemon-type psychic-badge">fighting</div>
+                            </div>
+                            <div id="modal-header--img-wrapper">
+                                <img id="modal-header--img-pokemon" src="./img/1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-data">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">About</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Stats</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                                    type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Moves</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                                tabindex="0">Hier gibt's die Basisdaten
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi magnam sint voluptatum odit atque itaque accusamus? Ratione architecto doloremque sunt cum laboriosam nobis nulla voluptas officiis dolor recusandae, cupiditate magnam?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat animi odit sapiente. Quos, similique ducimus cumque earum voluptates doloremque, quod itaque rem fuga, vel veniam molestias non eum provident reiciendis!
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem distinctio corrupti dolorum dicta corporis, natus iusto temporibus tenetur. Totam accusamus libero vitae eum eveniet esse voluptas facilis laboriosam blanditiis nulla!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure velit excepturi, tenetur aut explicabo molestiae reprehenderit. Labore, inventore fuga! Ab sed et nisi molestias doloremque necessitatibus, praesentium facere? Fugiat, maiores.
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ratione eaque. Ut quis eligendi velit unde quae aut natus veritatis doloribus pariatur. Ad quaerat rerum modi possimus excepturi nesciunt magni.
+                        </div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">Hier
+                                steht was zur Statistik
+                            </div>
+                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">Hier
+                                gibt's die Moves
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

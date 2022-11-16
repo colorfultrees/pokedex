@@ -19,13 +19,9 @@ async function loadPokemonsBaseData(range) {
     const baseData = await fetch(url);
     const baseDataAsJson = await baseData.json();
 
-    console.log(baseDataAsJson);
-    console.log('Pokemon 1: ', baseDataAsJson.results[0].url);
-
     await loadPokemonsFullData(baseDataAsJson);
 
     nextPage = '?' + baseDataAsJson.next.split('?')[1];
-    console.log(nextPage);
 }
 
 
