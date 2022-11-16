@@ -8,9 +8,10 @@ async function init() {
 
     console.log('Array:', pokemons);
 
-    let img = document.getElementById('img');
-    let imgUrl = pokemons[0]['sprites']['other']['official-artwork']['front_default'];
-    img.src = imgUrl;
+    // *** HOW-TO: Set image url from server
+    // let img = document.getElementById('img');
+    // let imgUrl = pokemons[0]['sprites']['other']['official-artwork']['front_default'];
+    // img.src = imgUrl;
 }
 
 

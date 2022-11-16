@@ -18,7 +18,7 @@
     <div id="main-container">
         <div class="card-overview electric-box" data-bs-toggle="modal" data-bs-target="#modalDetails">
             <!-- <div class="card-overview--bg-container"> -->
-                <img class="bg-img-type img-type--overview" src="./img/type_electric.png">
+            <img class="bg-img-type img-type--overview" src="./img/type_electric.png">
             <!-- </div> -->
             <div class="card-overview--info">
                 <h2>Bulbasaurus Rex</h2>
@@ -30,7 +30,7 @@
 
         <div class="card-overview ice-box" data-bs-toggle="modal" data-bs-target="#modalDetails">
             <!-- <div class="card-overview--bg-container"> -->
-                <img class="bg-img-type img-type--overview" src="./img/type_ice.png">
+            <img class="bg-img-type img-type--overview" src="./img/type_ice.png">
             <!-- </div> -->
             <div class="card-overview--info">
                 <h2>Bulbasaurus Rex</h2>
@@ -39,42 +39,6 @@
             <img class="card-overview--img-pokemon" src="./img/1.png">
         </div>
     </div>
-
-    <img id="img" src="" alt="">
-
-
-
-    <!-- template GRID -->
-    <div>
-        <div class="row justify-content-start">
-            <div class="col-4 px-0">
-                Special defense
-            </div>
-            <div class="col-2 px-1">
-                100
-            </div>
-            <div class="col-6">
-                This is the graphical representation
-            </div>
-        </div>
-    </div>
-    <!-- END: GRID -->
-
-    <!-- template TABS -->
-    
-    <!-- END: TABS -->
-
-
-    <!-- template PROGRESS BARS -->
-    <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%"
-            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <div class="progress">
-        <div class="progress-bar bg-danger" role="progressbar" aria-label="Danger example" style="width: 100%"
-            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <!-- END: PROGRESS BARS -->
 
     <!-- MODAL -->
     <div class="modal fade" id="modalDetails" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
@@ -100,34 +64,143 @@
                         </div>
                     </div>
                     <div id="modal-data">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs" id="statsTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">About</button>
+                                <button class="nav-link active" id="about-tab" data-bs-toggle="tab"
+                                    data-bs-target="#about-tab-pane" type="button" role="tab"
+                                    aria-controls="about-tab-pane" aria-selected="true">About</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Stats</button>
+                                <button class="nav-link" id="stats-tab" data-bs-toggle="tab"
+                                    data-bs-target="#stats-tab-pane" type="button" role="tab"
+                                    aria-controls="stats-tab-pane" aria-selected="false">Stats</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
-                                    type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Moves</button>
+                                <button class="nav-link" id="moves-tab" data-bs-toggle="tab"
+                                    data-bs-target="#moves-tab-pane" type="button" role="tab"
+                                    aria-controls="moves-tab-pane" aria-selected="false">Moves</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-                                tabindex="0">Hier gibt's die Basisdaten
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi magnam sint voluptatum odit atque itaque accusamus? Ratione architecto doloremque sunt cum laboriosam nobis nulla voluptas officiis dolor recusandae, cupiditate magnam?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat animi odit sapiente. Quos, similique ducimus cumque earum voluptates doloremque, quod itaque rem fuga, vel veniam molestias non eum provident reiciendis!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem distinctio corrupti dolorum dicta corporis, natus iusto temporibus tenetur. Totam accusamus libero vitae eum eveniet esse voluptas facilis laboriosam blanditiis nulla!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure velit excepturi, tenetur aut explicabo molestiae reprehenderit. Labore, inventore fuga! Ab sed et nisi molestias doloremque necessitatibus, praesentium facere? Fugiat, maiores.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ratione eaque. Ut quis eligendi velit unde quae aut natus veritatis doloribus pariatur. Ad quaerat rerum modi possimus excepturi nesciunt magni.
-                        </div>
-                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">Hier
-                                steht was zur Statistik
+                            <div class="tab-pane fade show active" id="about-tab-pane" role="tabpanel"
+                                aria-labelledby="about-tab" tabindex="0">
+                                <table class="mt-4 table table-dark">
+                                    <tr>
+                                        <td>Height:</td>
+                                        <td>0.7 m</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weight:</td>
+                                        <td>17.4 kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Base experience:</td>
+                                        <td>63</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Abilities:</td>
+                                        <td>this, that, some other</td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">Hier
-                                gibt's die Moves
+                            <div class="tab-pane fade" id="stats-tab-pane" role="tabpanel"
+                                aria-labelledby="stats-tab" tabindex="0">
+                                <table id="stats-table" class="mt-4">
+                                    <tr>
+                                        <td>HP</td>
+                                        <td>43</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" role="progressbar"
+                                                    aria-label="Success example" style="width: 43%" aria-valuenow="25"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attack</td>
+                                        <td>67</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    aria-label="Success example" style="width: 67%" aria-valuenow="25"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Special-Attack</td>
+                                        <td>100</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    aria-label="Success example" style="width: 100%" aria-valuenow="25"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="py-4 tab-pane fade" id="moves-tab-pane" role="tabpanel"
+                                aria-labelledby="moves-tab" tabindex="0">
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Dribbledance</span>
+                                <span class="move">F*ckyou</span>
+                                <span class="move">Superschnupfi</span>
+                                <span class="move">F*ckyou</span>
                             </div>
                         </div>
                     </div>

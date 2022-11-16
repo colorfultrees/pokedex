@@ -104,13 +104,18 @@ body {
 
 .btn-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 9px;
+    right: 9px;
     z-index: 10;
 }
 
 .progress {
+    --bs-progress-bg: rgb(30, 29, 43);
     height: 5px;
+}
+
+.modal {
+    backdrop-filter: blur(4px);
 }
 
 #modal-header {
@@ -139,16 +144,17 @@ body {
     margin-top: -45px;
     background-color: var(--bg-color-main);
     border-radius: var(--bd-rad-modal-data);
-    padding: 35px 25px 0;
+    padding: 45px 25px 0;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    font-size: 0.85em;
 }
 
 .nav-link {
     padding: 2px 40px;
     color: rgb(47, 75, 116);
-    font-size: 0.85em;
+    /* font-size: 0.85em; */
 }
 
 .nav-tabs .nav-link.active {
@@ -158,4 +164,34 @@ body {
 
 .tab-content {
     overflow-y: auto;
+}
+
+#about-tab-pane td {
+    background-color: unset;
+}
+
+#stats-table {
+    width: 100%;
+}
+
+#stats-table tr {
+    height: 2em;
+}
+
+#stats-table tr td:first-child {
+    width: 30%;
+}
+
+#stats-table tr td:nth-child(2) {
+    width: 10%;
+    text-align: center;
+}
+
+.move {
+    padding: 3px 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: rgb(72, 52, 109);
+    line-height: 2;
 }
