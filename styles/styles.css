@@ -24,12 +24,17 @@ body {
 }
 
 header {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 10px;
     position: sticky;
     top: 0;
     margin-bottom: 1em;
+}
+
+.input-group {
+    width: 300px;
 }
 
 #brand {
