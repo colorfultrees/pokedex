@@ -3,6 +3,9 @@
     --bg-color-main: rgb(2, 0, 20);
     --bd-rad-modal: 40px 0 40px 20px;
     --bd-rad-modal-data: 20px 40px 0 0;
+    --card-width: 280px;
+    --card-height: 210px;
+    --grid-gap: 0.5em;
 }
 
 * {
@@ -10,6 +13,9 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
     margin: 0;
@@ -17,10 +23,41 @@ body {
     color: var(--txt-color-main);
 }
 
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    margin-bottom: 1em;
+}
+
+#brand {
+    display: flex;
+    align-items: center;
+    font-family: 'Acme', 'sans-serif';
+    font-size: 1.6em;
+}
+
+#img-logo {
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: 0.4em;
+    transform: rotate(-15deg);
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--grid-gap);
+    flex-wrap: wrap;
+    max-width: calc((4 * var(--card-width)) + (3 * var(--grid-gap)) + 10px);
+}
+
 .card-overview {
     position: relative;
-    width: 300px;
-    height: 230px;
+    width: 280px;
+    height: 210px;
     border-radius: 15px 8px;
     padding: 0.8em 0.6em;
     cursor: pointer;
@@ -78,9 +115,9 @@ body {
 
 .card-overview--img-pokemon {
     position: absolute;
-    right: 0px;
-    bottom: 0px;
-    height: 180px;
+    right: 10px;
+    bottom: 10px;
+    height: 150px;
 }
 
 .modal-content {
