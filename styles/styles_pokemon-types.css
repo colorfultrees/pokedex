@@ -1,5 +1,5 @@
 :root {
-    --bug-bg: 56,145,76;
+    /* --bug-bg: 56,145,76;
     --dark-bg: 87,86,118;
     --dragon-bg: 97,202,217;
     --electric-bg: 251,251,114;
@@ -16,7 +16,26 @@
     --psychic-bg: 248,28,145;
     --rock-bg: 139,62,33;
     --steel-bg: 66,189,148;
-    --water-bg: 134,168,252;
+    --water-bg: 134,168,252; */
+
+    --bug-bg: hsl(133, 44%, 59%);
+    --dark-bg: hsl(242, 16%, 50%);
+    --dragon-bg: hsl(188, 61%, 72%);
+    --electric-bg: hsl(60, 94%, 82%);
+    --fairy-bg: hsl(336, 85%, 60%);
+    --fighting-bg: hsl(13, 85%, 68%);
+    --fire-bg: hsl(355, 98%, 75%);
+    --flying-bg: hsl(204, 32%, 78%);
+    --ghost-bg: hsl(300, 17%, 58%);
+    --grass-bg: hsl(135, 68%, 57%);
+    --ground-bg: hsl(32, 56%, 38%);
+    --ice-bg: hsl(199, 78%, 91%);
+    --normal-bg: hsl(342, 31%, 79%);
+    --poison-bg: hsl(267, 60%, 73%);
+    --psychic-bg: hsl(328, 94%, 64%);
+    --rock-bg: hsl(16, 62%, 44%);
+    --steel-bg: hsl(160, 48%, 60%);
+    --water-bg: hsl(223, 95%, 86%);
 
     --bug-bd: #1C4B27;
     --dark-bd: #040706;
@@ -42,147 +61,151 @@
 }
 
 .bug-box {
-    background-color: rgba(var(--bug-bg), var(--opacity));
+    background-color: var(--bug-bg);
     border: solid var(--border-size) var(--bug-bd);
 }
 .bug-badge {
-    background-color: rgb(var(--bug-bg));
+    background-color: var(--bug-bd);
 }
 
 .dark-box {
-    background-color: rgba(var(--dark-bg), var(--opacity));
+    background-color: var(--dark-bg);
     border: solid var(--border-size) var(--dark-bd);
 }
 .dark-badge {
-    background-color: rgb(var(--dark-bg));
+    background-color: var(--dark-bd);
 }
 
 .dragon-box {
-    background-color: rgba(var(--dragon-bg), var(--opacity));
+    background-color: var(--dragon-bg);
     border: solid var(--border-size) var(--dragon-bd);
 }
 .dragon-badge {
-    background-color: rgb(var(--dragon-bg));
+    background-color: var(--dragon-bd);
 }
 
 .electric-box {
-    background-color: rgba(var(--electric-bg), var(--opacity));
+    /* background-color: rgba(var(--electric-bg), var(--opacity)); */
+    background-color: var(--electric-bg);
     border: solid var(--border-size) var(--electric-bd);
     color: black;
 }
 .electric-badge {
-    background-color: rgb(var(--electric-bg));
+    /* background-color: rgb(var(--electric-bg)); */
+    background-color: var(--electric-bd);
 }
 
 .fairy-box {
-    background-color: rgba(var(--fairy-bg), var(--opacity));
+    background-color: var(--fairy-bg);
     border: solid var(--border-size) var(--fairy-bd);
 }
 .fairy-badge {
-    background-color: rgb(var(--fairy-bg));
+    background-color: var(--fairy-bd);
 }
 
 .fighting-box {
-    background-color: rgba(var(--fighting-bg), var(--opacity));
+    background-color: var(--fighting-bg);
     border: solid var(--border-size) var(--fighting-bd);
 }
 .fighting-badge {
-    background-color: rgb(var(--fighting-bg));
+    background-color: var(--fighting-bd);
 }
 
 .fire-box {
-    background-color: rgba(var(--fire-bg), var(--opacity));
+    background-color: var(--fire-bg);
     border: solid var(--border-size) var(--fire-bd);
 }
 .fire-badge {
-    background-color: rgb(var(--fire-bg));
+    background-color: var(--fire-bd);
 }
 
 .flying-box {
-    background-color: rgba(var(--flying-bg), var(--opacity));
+    background-color: var(--flying-bg);
     border: solid var(--border-size) var(--flying-bd);
 }
 .flying-badge {
-    background-color: rgb(var(--flying-bg));
+    background-color: var(--flying-bd);
 }
 
 .ghost-box {
-    background-color: rgba(var(--ghost-bg), var(--opacity));
+    background-color: var(--ghost-bg);
     border: solid var(--border-size) var(--ghost-bd);
 }
 .ghost-badge {
-    background-color: rgb(var(--ghost-bg));
+    background-color: var(--ghost-bd);
 }
 
 .grass-box {
-    background-color: rgba(var(--grass-bg), var(--opacity));
+    background-color: var(--grass-bg);
     border: solid var(--border-size) var(--grass-bd);
 }
 .grass-badge {
-    background-color: rgb(var(--grass-bg));
+    background-color: var(--grass-bd);
 }
 
 .ground-box {
-    background-color: rgba(var(--ground-bg), var(--opacity));
+    background-color: var(--ground-bg);
     border: solid var(--border-size) var(--ground-bd);
 }
 .ground-badge {
-    background-color: rgb(var(--ground-bg));
+    background-color: var(--ground-bd);
 }
 
 .ice-box {
-    background-color: rgba(var(--ice-bg), var(--opacity));
+    /* background-color: rgba(var(--ice-bg), var(--opacity)); */
+    background-color: var(--ice-bg);
     border: solid var(--border-size) var(--ice-bd);
     color: black;
 }
 .ice-badge {
-    background-color: rgb(var(--ice-bg));
+    /* background-color: rgb(var(--ice-bg)); */
+    background-color: var(--ice-bd);
 }
 
 .normal-box {
-    background-color: rgba(var(--normal-bg), var(--opacity));
+    background-color: var(--normal-bg);
     border: solid var(--border-size) var(--normal-bd);
 }
 .normal-badge {
-    background-color: rgb(var(--normal-bg));
+    background-color: var(--normal-bd);
 }
 
 .poison-box {
-    background-color: rgba(var(--poison-bg), var(--opacity));
+    background-color: var(--poison-bg);
     border: solid var(--border-size) var(--poison-bd);
 }
 .poison-badge {
-    background-color: rgb(var(--poison-bg));
+    background-color: var(--poison-bd);
 }
 
 .psychic-box {
-    background-color: rgba(var(--psychic-bg), var(--opacity));
+    background-color: var(--psychic-bg);
     border: solid var(--border-size) var(--psychic-bd);
 }
 .psychic-badge {
-    background-color: rgb(var(--psychic-bg));
+    background-color: var(--psychic-bd);
 }
 
 .rock-box {
-    background-color: rgba(var(--rock-bg), var(--opacity));
+    background-color: var(--rock-bg);
     border: solid var(--border-size) var(--rock-bd);
 }
 .rock-badge {
-    background-color: rgb(var(--rock-bg));
+    background-color: var(--rock-bd);
 }
 
 .steel-box {
-    background-color: rgba(var(--steel-bg), var(--opacity));
+    background-color: var(--steel-bg);
     border: solid var(--border-size) var(--steel-bd);
 }
 .steel-badge {
-    background-color: rgb(var(--steel-bg));
+    background-color: var(--steel-bd);
 }
 
 .water-box {
-    background-color: rgba(var(--water-bg), var(--opacity));
+    background-color: var(--water-bg);
     border: solid var(--border-size) var(--water-bd);
 }
 .water-badge {
-    background-color: rgb(var(--water-bg));
+    background-color: var(--water-bd);
 }

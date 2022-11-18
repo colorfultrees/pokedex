@@ -4,9 +4,9 @@ let nextPage = '';
 
 
 async function init() {
-    await loadPokemonsBaseData('');
+    await loadData(nextPage);
 
-    console.log('Array:', pokemons);
+    console.log('Array:', pokemons); /* DISMISS ********/
 
     // *** HOW-TO: Set image url from server
     // let img = document.getElementById('img');
@@ -15,14 +15,19 @@ async function init() {
 }
 
 
+async function loadData(range) {
+    const baseData = await loadPokemonsBaseData(range);
+    await loadPokemonsFullData(baseData);
+}
+
 async function loadPokemonsBaseData(range) {
     const url = `${API_URL}${range}`;
     const baseData = await fetch(url);
     const baseDataAsJson = await baseData.json();
 
-    await loadPokemonsFullData(baseDataAsJson);
-
     nextPage = '?' + baseDataAsJson.next.split('?')[1];
+
+    return baseDataAsJson;
 }
 
 
@@ -32,4 +37,19 @@ async function loadPokemonsFullData(pokemonsBaseData) {
         const data = await fetch(url);
         pokemons.push(await data.json());
     }
+}
+
+
+function loadDetails(id) {
+
+}
+
+
+function previous() {
+    // REM: Take current ID from #modalDetails > data-id
+}
+
+
+function next() {
+    // REM: Take current ID from #modalDetails > data-id
 }
