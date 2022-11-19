@@ -4,7 +4,7 @@ function renderOverviewCard(id, name, type, imgUrl) {
             <img class="bg-img-type img-type--overview" src="./img/type_${type}.png">
             <div class="card-overview--info">
                 <h3>${name}</h3>
-                ${renderOverviewTypes(type)}
+                ${renderOverviewTypes(id, type)}
             </div>
             <img class="card-overview--img-pokemon" src="${imgUrl}">
         </div>
@@ -13,11 +13,11 @@ function renderOverviewCard(id, name, type, imgUrl) {
 
 
 function renderOverviewTypes(id, mainType) {
-    const countTypes= pokemons[id][types].length;
+    const countTypes= pokemons[id]['types'].length;
     let types = '';
 
     for (let t = 0; t < countTypes; t++) {
-        const type = pokemons[id][types][t][type][name];
+        const type = pokemons[id]['types'][t]['type']['name'];
         types += `<div class="pokemon-type ${mainType}-badge">${type}</div>`
     }
     

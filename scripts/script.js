@@ -1,12 +1,16 @@
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const pokemons = [];
+let pokemonsCount = 0;
 let nextPage = '';
 let isEndOfData = false;
 
 
 
 async function init() {
+    const container = document.getElementById('main-container');
+    container.innerHTML = '';
     await loadData();
+    renderOverview();
 
     // *** HOW-TO: Set image url from server
     // let img = document.getElementById('img');
@@ -16,12 +20,21 @@ async function init() {
 
 
 function addScrollEvent() {
-    window.addEventListener('scroll', loadData);
+    window.addEventListener('scroll', isEndOfPage);
 }
 
 
 function deleteScrollEvent() {
-    window.removeEventListener('scroll', loadData);
+    window.removeEventListener('scroll', isEndOfPage);
+}
+
+
+async function isEndOfPage() {
+    // console.log(`innerHeight: ${window.innerHeight}, scrollY: ${window.scrollY}, scrollHeight: ${document.body.scrollHeight}`);
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        await loadData();
+        renderOverview();
+    }
 }
 
 
@@ -61,6 +74,20 @@ async function loadPokemonsFullData(pokemonsBaseData) {
     console.log('Array:', pokemons);
     console.log('Next page:', nextPage);
     /* TEST ********/
+}
+
+
+function renderOverview() {
+    const container = document.getElementById('main-container');
+    
+    for (let i = pokemonsCount; i < pokemons.length - 1; i++) {
+        const name = pokemons[i]['name'];
+        const type = pokemons[i]['types'][0]['type']['name'];
+        const imgUrl = pokemons[i]['sprites']['other']['official-artwork']['front_default'];
+        container.innerHTML += renderOverviewCard(i, name, type, imgUrl);
+    }
+
+    pokemonsCount = pokemons.length;
 }
 
 
