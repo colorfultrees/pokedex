@@ -25,14 +25,12 @@ function getPokemonImgUrl(id) {
 
 
 function getPokemonWeight(id) {
-    const weight = parseInt(pokemons[id]['weight']) / 10;
-    return weight.toString();
+    return pokemons[id]['weight'] / 10;
 }
 
 
 function getPokemonHeight(id) {
-    const height = parseInt(pokemons[id]['height']) / 10;
-    return height.toString();
+    return pokemons[id]['height'] / 10;
 }
 
 
@@ -53,4 +51,32 @@ function getPokemonAbilities(id) {
     }
 
     return abilities;
+}
+
+
+function getUpperBaseValue(id) {
+    const countStats = pokemons[id]['stats'].length;
+    let upperBaseValue = 100;
+    let maxValue = 0;
+
+    for (let s = 0; s < countStats; s++) {
+        const value = pokemons[id]['stats'][s]['base_stat'];
+        if (maxValue < value) maxValue = value;
+    }
+
+    if (maxValue > upperBaseValue) upperBaseValue = maxValue;
+    return upperBaseValue;
+}
+
+function getPokemonStat(id, statId, upperBaseValue) {
+    const statEntry = {
+        'name': '',
+        'value': 0,
+        'diagram': 0
+    };
+    statEntry['name'] = pokemons[id]['stats'][statId]['stat']['name'];
+    statEntry['value'] = pokemons[id]['stats'][statId]['base_stat'];
+    statEntry['diagram'] = Math.round((pokemons[id]['stats'][statId]['base_stat'] * 100) / upperBaseValue);
+
+    return statEntry;
 }

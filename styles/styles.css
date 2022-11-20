@@ -1,5 +1,5 @@
 :root {
-    --txt-color-main: whitesmoke;
+    --txt-color-main: white;
     --bg-color-main: rgb(2, 0, 20);
     --bd-rad-modal: 40px 0 40px 20px;
     --bd-rad-modal-data: 20px 40px 0 0;
@@ -246,6 +246,7 @@ header {
 
 #stats-table {
     width: 100%;
+    color: var(--txt-color-main);
 }
 
 #stats-table tr {

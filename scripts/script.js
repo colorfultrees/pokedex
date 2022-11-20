@@ -1,6 +1,10 @@
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const pokemons = [];
 const endOfFile = '--EOF--';
+const progressBarColor = {
+    'low': 'bg-danger',
+    'high': 'bg-success'
+};
 let pokemonsCount = 0;
 let nextPage = '';
 let isEndOfData = false;
@@ -95,6 +99,7 @@ function renderOverview() {
 function loadDetails(id) {
     loadDetailsHeader(id);
     loadDetailsAbout(id);
+    loadDetailsStats(id);
 }
 
 
@@ -119,6 +124,12 @@ function loadDetailsAbout(id) {
     tableAbout.innerHTML = renderTableAbout(height, weight, baseExp, abilities);
 }
 
+
+function loadDetailsStats(id) {
+    const tableStats = document.getElementById('stats-table');
+    const upperBaseValue = getUpperBaseValue(id);
+    tableStats.innerHTML = renderTableStats(id, upperBaseValue);
+}
 
 function previous() {
     // REM: Take current ID from #modalDetails > data-id

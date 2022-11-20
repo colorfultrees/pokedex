@@ -68,3 +68,35 @@ function renderTableAbout(height, weight, baseExp, abilities) {
         </tr>
     `;
 }
+
+
+function renderTableStats(id, upperBaseValue) {
+    const countStats = pokemons[id]['stats'].length;
+    let statsHtml = '';
+
+    for (let s = 0; s < countStats; s++) {
+        const stat = getPokemonStat(id, s, upperBaseValue);
+        let progBarColor = '';
+        if (stat['diagram'] < 50) {
+            progBarColor = progressBarColor['low'];
+        }
+        else {
+            progBarColor = progressBarColor['high'];
+        }
+        statsHtml += `
+            <tr>
+                <td>${stat['name']}</td>
+                <td>${stat['value']}</td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar ${progBarColor}" role="progressbar"
+                            aria-label="Success example" style="width: ${stat['diagram']}%" aria-valuenow="${stat['diagram']}"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    return statsHtml;
+}
