@@ -46,3 +46,25 @@ function renderModalPokemonImgWrapper(id) {
         <div class="nav-btn" onclick="next(${next})"  style="visibility: ${visNext};"><img src="./img/double-arrow-right.png" alt="next"></div>
     `;
 }
+
+
+function renderTableAbout(height, weight, baseExp, abilities) {
+    return `
+        <tr>
+            <td>Height:</td>
+            <td>${height} m</td>
+        </tr>
+        <tr>
+            <td>Weight:</td>
+            <td>${weight} kg</td>
+        </tr>
+        <tr>
+            <td>Base experience:</td>
+            <td>${baseExp}</td>
+        </tr>
+        <tr>
+            <td>Abilities:</td>
+            <td>${abilities}</td>
+        </tr>
+    `;
+}

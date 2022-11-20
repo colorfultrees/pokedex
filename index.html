@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/styles_pokemon-types.css">
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./scripts/html-templates.js"></script>
+    <script src="./scripts/pokemonDataReader.js"></script>
     <script src="./scripts/script.js"></script>
     <title>Pokédex</title>
 </head>
@@ -279,7 +280,7 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="about-tab-pane" role="tabpanel"
                             aria-labelledby="about-tab" tabindex="0">
-                            <table class="mt-4 table table-dark">
+                            <table id="table-about" class="mt-4 table table-dark">
                                 <tr>
                                     <td>Height:</td>
                                     <td>0.7 m</td>

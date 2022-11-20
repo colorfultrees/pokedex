@@ -78,32 +78,6 @@ async function loadPokemonsFullData(pokemonsBaseData) {
 }
 
 
-function getPokemonName(id) {
-    return pokemons[id]['name'];
-}
-
-
-function getPokemonId(id) {
-    return pokemons[id]['id'];
-}
-
-
-function getPokemonType(id) {
-    return pokemons[id]['types'][0]['type']['name'];
-}
-
-
-function getPokemonTypeImgUrl(id) {
-    const type = getPokemonType(id);
-    return `./img/type_${type}.png`;
-}
-
-
-function getPokemonImgUrl(id) {
-    return pokemons[id]['sprites']['other']['official-artwork']['front_default'];
-}
-
-
 function renderOverview() {
     const container = document.getElementById('main-container');
     
@@ -119,6 +93,12 @@ function renderOverview() {
 
 
 function loadDetails(id) {
+    loadDetailsHeader(id);
+    loadDetailsAbout(id);
+}
+
+
+function loadDetailsHeader(id) {
     const infoName = document.getElementById('modal-header--info-name');
     const infoType = document.getElementById('modal-header--info-type');
     const imgWrapper = document.getElementById('modal-header--img-wrapper');
@@ -127,6 +107,16 @@ function loadDetails(id) {
     infoName.innerHTML = renderModalInfoName(id);
     infoType.innerHTML = renderOverviewTypes(id, getPokemonType(id));
     imgWrapper.innerHTML = renderModalPokemonImgWrapper(id);
+}
+
+
+function loadDetailsAbout(id) {
+    const tableAbout = document.getElementById('table-about');
+    const weight = getPokemonWeight(id);
+    const height = getPokemonHeight(id);
+    const baseExp = getPokemonBaseExperience(id);
+    const abilities = getPokemonAbilities(id);
+    tableAbout.innerHTML = renderTableAbout(height, weight, baseExp, abilities);
 }
 
 
