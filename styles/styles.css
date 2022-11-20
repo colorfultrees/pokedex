@@ -273,3 +273,8 @@ footer {
     margin-top: 20px;
     width: 100%;
 }
+
+
+footer p {
+    margin-bottom: 0.5em;
+}

@@ -236,12 +236,12 @@
     </footer>
 
     <!-- MODAL -->
-    <div class="modal fade" id="modalDetails" data-id="0" tabindex="-1">
+    <div class="modal fade" id="modalDetails" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bug-box">
+            <div id="modal-content" class="modal-content bug-box">
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 <div id="modal-header">
-                    <img class="bg-img-type img-type--modal" src="./img/type_electric.png">
+                    <img id="modal--img-type" class="bg-img-type img-type--modal" src="./img/type_electric.png">
                     <div id="modal-header--info-content">
                         <div id="modal-header--info-name" class="d-flex justify-content-between align-items-center">
                             <h2 id="info-name">Blablasaurus</h2>
@@ -252,9 +252,9 @@
                             <div class="pokemon-type psychic-badge">fighting</div>
                         </div>
                         <div id="modal-header--img-wrapper">
-                            <div class="nav-btn" onclick="previous()"><img src="./img/double-arrow-left.png" alt="previous"></div>
+                            <div class="nav-btn" onclick="previous()" style="visibility: visible;"><img src="./img/double-arrow-left.png" alt="previous"></div>
                             <img id="modal-header--img-pokemon" src="./img/1.png" alt="">
-                            <div class="nav-btn" onclick="next()"><img src="./img/double-arrow-right.png" alt="next"></div>
+                            <div class="nav-btn" onclick="next()" style="visibility: visible;"><img src="./img/double-arrow-right.png" alt="next"></div>
                         </div>
                     </div>
                 </div>

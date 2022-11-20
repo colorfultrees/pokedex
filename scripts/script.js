@@ -1,5 +1,6 @@
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const pokemons = [];
+const endOfFile = '--EOF--';
 let pokemonsCount = 0;
 let nextPage = '';
 let isEndOfData = false;
@@ -54,7 +55,7 @@ async function loadPokemonsBaseData() {
     }
     catch {
         isEndOfData = true;
-        nextPage = '--EOF--'
+        nextPage = endOfFile;
     }
     
     return baseDataAsJson;
@@ -77,13 +78,39 @@ async function loadPokemonsFullData(pokemonsBaseData) {
 }
 
 
+function getPokemonName(id) {
+    return pokemons[id]['name'];
+}
+
+
+function getPokemonId(id) {
+    return pokemons[id]['id'];
+}
+
+
+function getPokemonType(id) {
+    return pokemons[id]['types'][0]['type']['name'];
+}
+
+
+function getPokemonTypeImgUrl(id) {
+    const type = getPokemonType(id);
+    return `./img/type_${type}.png`;
+}
+
+
+function getPokemonImgUrl(id) {
+    return pokemons[id]['sprites']['other']['official-artwork']['front_default'];
+}
+
+
 function renderOverview() {
     const container = document.getElementById('main-container');
     
-    for (let i = pokemonsCount; i < pokemons.length - 1; i++) {
-        const name = pokemons[i]['name'];
-        const type = pokemons[i]['types'][0]['type']['name'];
-        const imgUrl = pokemons[i]['sprites']['other']['official-artwork']['front_default'];
+    for (let i = pokemonsCount; i < pokemons.length; i++) {
+        const name = getPokemonName(i);
+        const type = getPokemonType(i);
+        const imgUrl = getPokemonImgUrl(i);
         container.innerHTML += renderOverviewCard(i, name, type, imgUrl);
     }
 
@@ -92,7 +119,14 @@ function renderOverview() {
 
 
 function loadDetails(id) {
-
+    const infoName = document.getElementById('modal-header--info-name');
+    const infoType = document.getElementById('modal-header--info-type');
+    const imgWrapper = document.getElementById('modal-header--img-wrapper');
+    setStyleByType(id);
+    setModalBgImgType(id);
+    infoName.innerHTML = renderModalInfoName(id);
+    infoType.innerHTML = renderOverviewTypes(id, getPokemonType(id));
+    imgWrapper.innerHTML = renderModalPokemonImgWrapper(id);
 }
 
 
@@ -103,4 +137,47 @@ function previous() {
 
 function next() {
     // REM: Take current ID from #modalDetails > data-id
+}
+
+
+function setStyleByType(id) {
+    const contentContainer = document.getElementById('modal-content');
+    const type = getPokemonType(id);
+
+    // Remove the '*-box' class
+    const classes = contentContainer.className.split(' ');
+    const classToBeRemoved = classes.filter((c) => {
+        return c.indexOf('box') !== -1;
+    });
+    contentContainer.classList.remove(classToBeRemoved[0]);
+
+    // Add the class for the current type
+    contentContainer.classList.add(type + '-box');
+}
+
+
+function setModalBgImgType(id) {
+    const img = document.getElementById('modal--img-type');
+    const tpyeImgUrl = getPokemonTypeImgUrl(id);
+    img.src = tpyeImgUrl;
+}
+
+
+function checkVisPrev(id) {
+    if (id == 0) {
+        return 'hidden';
+    }
+    else {
+        return 'visible';
+    }
+}
+
+
+function checkVisNext(id) {
+    if (id == pokemons.length - 1 && nextPage == endOfFile) {
+        return 'hidden';
+    }
+    else {
+        return 'visible';
+    }
 }
