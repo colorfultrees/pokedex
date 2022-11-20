@@ -100,6 +100,7 @@ function loadDetails(id) {
     loadDetailsHeader(id);
     loadDetailsAbout(id);
     loadDetailsStats(id);
+    loadDetailsMoves(id);
 }
 
 
@@ -130,6 +131,13 @@ function loadDetailsStats(id) {
     const upperBaseValue = getUpperBaseValue(id);
     tableStats.innerHTML = renderTableStats(id, upperBaseValue);
 }
+
+
+function loadDetailsMoves(id) {
+    const movesTab = document.getElementById('moves-tab-pane');
+    movesTab.innerHTML = renderMoves(id);
+}
+
 
 function previous() {
     // REM: Take current ID from #modalDetails > data-id

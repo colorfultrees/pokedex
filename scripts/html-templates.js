@@ -100,3 +100,16 @@ function renderTableStats(id, upperBaseValue) {
 
     return statsHtml;
 }
+
+
+function renderMoves(id) {
+    const countMoves = pokemons[id]['moves'].length;
+    let movesHtml = '';
+
+    for (let m = 0; m < countMoves; m++) {
+        const move = pokemons[id]['moves'][m]['move']['name'];
+        movesHtml += `<span class="move">${move}</span>`;
+    }
+
+    return movesHtml;
+}
