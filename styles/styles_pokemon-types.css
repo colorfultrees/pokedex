@@ -1,23 +1,4 @@
 :root {
-    /* --bug-bg: 56,145,76;
-    --dark-bg: 87,86,118;
-    --dragon-bg: 97,202,217;
-    --electric-bg: 251,251,114;
-    --fairy-bg: 234,19,105;
-    --fighting-bg: 239,97,56;
-    --fire-bg: 253,76,90;
-    --flying-bg: 147,178,199;
-    --ghost-bg: 144,103,144;
-    --grass-bg: 39,203,79;
-    --ground-bg: 110,73,31;
-    --ice-bg: 215,239,250;
-    --normal-bg: 201,152,167;
-    --poison-bg: 155,105,217;
-    --psychic-bg: 248,28,145;
-    --rock-bg: 139,62,33;
-    --steel-bg: 66,189,148;
-    --water-bg: 134,168,252; */
-
     --bug-bg: hsl(133, 44%, 59%);
     --dark-bg: hsl(242, 16%, 50%);
     --dragon-bg: hsl(188, 61%, 72%);
@@ -47,7 +28,7 @@
     --flying-bd: #4A677D;
     --ghost-bd: #33336B;
     --grass-bd: #127B3D;
-    --ground-bd: #6E491F/*#A9702C*/;
+    --ground-bd: #6E491F;
     --ice-bd: #86D2F5;
     --normal-bd: #75515B;
     --poison-bd: #5E2D88;
@@ -85,13 +66,11 @@
 }
 
 .electric-box {
-    /* background-color: rgba(var(--electric-bg), var(--opacity)); */
     background-color: var(--electric-bg);
     border: solid var(--border-size) var(--electric-bd);
     color: black;
 }
 .electric-badge {
-    /* background-color: rgb(var(--electric-bg)); */
     background-color: var(--electric-bd);
 }
 
@@ -152,13 +131,11 @@
 }
 
 .ice-box {
-    /* background-color: rgba(var(--ice-bg), var(--opacity)); */
     background-color: var(--ice-bg);
     border: solid var(--border-size) var(--ice-bd);
     color: black;
 }
 .ice-badge {
-    /* background-color: rgb(var(--ice-bg)); */
     background-color: var(--ice-bd);
 }
 

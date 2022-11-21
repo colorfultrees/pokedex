@@ -1,12 +1,14 @@
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
-const pokemons = [];
 const progressBarColor = {
     'low': 'bg-danger',
     'high': 'bg-success'
 };
+let pokemons = [];
+let pokemonsTmp = [];
 let pokemonsCount = 0;
 let nextPage = '';
 let isEndOfData = false;
+let isSearchActive = false;
 
 
 
@@ -15,11 +17,6 @@ async function init() {
     container.innerHTML = '';
     await loadData();
     renderOverview();
-
-    // *** HOW-TO: Set image url from server
-    // let img = document.getElementById('img');
-    // let imgUrl = pokemons[0]['sprites']['other']['official-artwork']['front_default'];
-    // img.src = imgUrl;
 }
 
 
@@ -28,13 +25,12 @@ function addScrollEvent() {
 }
 
 
-function deleteScrollEvent() {
+function removeScrollEvent() {
     window.removeEventListener('scroll', isEndOfPage);
 }
 
 
 async function isEndOfPage() {
-    // console.log(`innerHeight: ${window.innerHeight}, scrollY: ${window.scrollY}, scrollHeight: ${document.body.scrollHeight}`);
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
         await loadData();
         renderOverview();
@@ -43,7 +39,7 @@ async function isEndOfPage() {
 
 
 async function loadData() {
-    deleteScrollEvent();
+    removeScrollEvent();
     const baseData = await loadPokemonsBaseData();
     await loadPokemonsFullData(baseData);
 }
@@ -72,25 +68,22 @@ async function loadPokemonsFullData(pokemonsBaseData) {
     }
 
     if (!isEndOfData) addScrollEvent();
-    
-    /* TEST ********/
-    console.log('Array:', pokemons);
-    console.log('Next page:', nextPage);
-    /* TEST ********/
 }
 
 
 function renderOverview() {
     const container = document.getElementById('main-container');
+    let start = 0;
+    if (!isSearchActive) start = pokemonsCount;
     
-    for (let i = pokemonsCount; i < pokemons.length; i++) {
+    for (let i = start; i < pokemons.length; i++) {
         const name = getPokemonName(i);
         const type = getPokemonType(i);
         const imgUrl = getPokemonImgUrl(i);
         container.innerHTML += renderOverviewCard(i, name, type, imgUrl);
     }
 
-    pokemonsCount = pokemons.length;
+    if (!isSearchActive) pokemonsCount = pokemons.length;
 }
 
 
@@ -143,7 +136,7 @@ function previous(prevId) {
 
 
 async function next(nextId) {
-    if (nextId == pokemons.length) {
+    if (nextId == pokemons.length && !isSearchActive) {
         await loadData();
         renderOverview();
     }
@@ -185,10 +178,67 @@ function checkVisPrev(id) {
 
 
 function checkVisNext(id) {
-    if (id == pokemons.length - 1 && isEndOfData) {
+    if (id == pokemons.length - 1 && (isEndOfData || isSearchActive)) {
         return 'hidden';
     }
     else {
         return 'visible';
     }
+}
+
+
+function doSearch() {
+    const searchResult = getSearchResult();
+
+    if (searchResult.length == 0) {
+        showSearchMessage();
+    }
+    else {
+        showSearchResult(searchResult);
+    }
+}
+
+
+function getSearchResult() {
+    const searchTerm = document.querySelector('form input').value;
+    let searchResult = [];
+    searchResult = pokemons.filter((item) => {
+        return item['name'].indexOf(searchTerm) >= 0;
+    });
+    return searchResult;
+}
+
+
+function showSearchMessage() {
+    const searchMessage = document.getElementById('search-message');
+        const msg = new bootstrap.Toast(searchMessage);
+        msg.show()
+}
+
+
+function showSearchResult(searchResult) {
+    isSearchActive = true;
+        pokemonsTmp = [...pokemons]; // Store the current list
+        pokemons = [...searchResult];
+        removeScrollEvent();
+        clearOverview();
+        renderOverview();
+}
+
+
+function clearSearch() {
+    const searchField = document.querySelector('form input');
+    searchField.value = '';
+    pokemons = [...pokemonsTmp]; // Restore the full list
+    pokemonsTmp = [];
+    clearOverview();
+    renderOverview();
+    addScrollEvent();
+    isSearchActive = false;
+}
+
+
+function clearOverview() {
+    const mainContainer = document.getElementById('main-container');
+    mainContainer.innerHTML = '';
 }
