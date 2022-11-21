@@ -1,6 +1,5 @@
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const pokemons = [];
-const endOfFile = '--EOF--';
 const progressBarColor = {
     'low': 'bg-danger',
     'high': 'bg-success'
@@ -59,7 +58,6 @@ async function loadPokemonsBaseData() {
     }
     catch {
         isEndOfData = true;
-        nextPage = endOfFile;
     }
     
     return baseDataAsJson;
@@ -108,7 +106,7 @@ function loadDetailsHeader(id) {
     const infoName = document.getElementById('modal-header--info-name');
     const infoType = document.getElementById('modal-header--info-type');
     const imgWrapper = document.getElementById('modal-header--img-wrapper');
-    setStyleByType(id);
+    setModalBgColor(id);
     setModalBgImgType(id);
     infoName.innerHTML = renderModalInfoName(id);
     infoType.innerHTML = renderOverviewTypes(id, getPokemonType(id));
@@ -139,17 +137,21 @@ function loadDetailsMoves(id) {
 }
 
 
-function previous() {
-    // REM: Take current ID from #modalDetails > data-id
+function previous(prevId) {
+    loadDetails(prevId);
 }
 
 
-function next() {
-    // REM: Take current ID from #modalDetails > data-id
+async function next(nextId) {
+    if (nextId == pokemons.length) {
+        await loadData();
+        renderOverview();
+    }
+    loadDetails(nextId);
 }
 
 
-function setStyleByType(id) {
+function setModalBgColor(id) {
     const contentContainer = document.getElementById('modal-content');
     const type = getPokemonType(id);
 
@@ -183,7 +185,7 @@ function checkVisPrev(id) {
 
 
 function checkVisNext(id) {
-    if (id == pokemons.length - 1 && nextPage == endOfFile) {
+    if (id == pokemons.length - 1 && isEndOfData) {
         return 'hidden';
     }
     else {
