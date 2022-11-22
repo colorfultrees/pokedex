@@ -3,8 +3,10 @@ const progressBarColor = {
     'low': 'bg-danger',
     'high': 'bg-success'
 };
-let pokemons = [];
-let pokemonsTmp = [];
+let pokemonsDisplay = []; // Contains the pokemons to be displayed
+                          // A - All by standard
+                          // B - Filtered when search is active
+let pokemonsAll = []; // Contains all pokemons loaded
 let pokemonsCount = 0;
 let nextPage = '';
 let isEndOfData = false;
@@ -89,8 +91,9 @@ async function loadPokemonsFullData(pokemonsBaseData) {
     for (let i = 0; i < pokemonsBaseData.results.length; i++) {
         const url = pokemonsBaseData.results[i].url;
         const data = await fetch(url);
-        pokemons.push(await data.json());
+        pokemonsDisplay.push(await data.json());
     }
+    pokemonsAll = [...pokemonsDisplay];
 
     if (!isEndOfData) addScrollEvent();
 }
@@ -104,14 +107,14 @@ function renderOverview() {
     let start = 0;
     if (!isSearchActive) start = pokemonsCount;
     
-    for (let i = start; i < pokemons.length; i++) {
+    for (let i = start; i < pokemonsDisplay.length; i++) {
         const name = getPokemonName(i);
         const type = getPokemonType(i);
         const imgUrl = getPokemonImgUrl(i);
         container.innerHTML += renderOverviewCard(i, name, type, imgUrl);
     }
 
-    if (!isSearchActive) pokemonsCount = pokemons.length;
+    if (!isSearchActive) pokemonsCount = pokemonsDisplay.length;
 }
 
 
@@ -192,7 +195,7 @@ function previous(prevId) {
  * @param {number} prevId The ID of the next pokemon
  */
 async function next(nextId) {
-    if (nextId == pokemons.length && !isSearchActive) {
+    if (nextId == pokemonsDisplay.length && !isSearchActive) {
         await loadData();
         renderOverview();
     }
@@ -252,7 +255,7 @@ function checkVisPrev(id) {
  * @returns The visibility setting for the "next" button
  */
 function checkVisNext(id) {
-    if (id == pokemons.length - 1 && (isEndOfData || isSearchActive)) {
+    if (id == pokemonsDisplay.length - 1 && (isEndOfData || isSearchActive)) {
         return 'hidden';
     }
     else {
@@ -283,7 +286,7 @@ function doSearch() {
 function getSearchResult() {
     const searchTerm = document.querySelector('form input').value;
     let searchResult = [];
-    searchResult = pokemons.filter((item) => {
+    searchResult = pokemonsAll.filter((item) => {
         return item['name'].indexOf(searchTerm) >= 0;
     });
     return searchResult;
@@ -305,12 +308,13 @@ function showSearchMessage() {
  * @param {Array} searchResult The list of pokemons filterd by name
  */
 function showSearchResult(searchResult) {
+    const searchField = document.querySelector('form input');
+    searchField.style = 'background-color: var(--bs-warning)';
     isSearchActive = true;
-        pokemonsTmp = [...pokemons]; // Store the current list
-        pokemons = [...searchResult];
-        removeScrollEvent();
-        clearOverview();
-        renderOverview();
+    pokemonsDisplay = [...searchResult];
+    removeScrollEvent();
+    clearOverview();
+    renderOverview();
 }
 
 
@@ -320,8 +324,11 @@ function showSearchResult(searchResult) {
 function clearSearch() {
     const searchField = document.querySelector('form input');
     searchField.value = '';
-    pokemons = [...pokemonsTmp]; // Restore the full list
-    pokemonsTmp = [];
+    searchField.style = '';
+
+    if (!isSearchActive) return;
+
+    pokemonsDisplay = [...pokemonsAll]; // Restore the full list
     clearOverview();
     renderOverview();
     addScrollEvent();

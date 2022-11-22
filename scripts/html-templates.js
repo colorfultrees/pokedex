@@ -27,11 +27,11 @@ function renderOverviewCard(id, name, type, imgUrl) {
  * @returns The HTML code of the type badges
  */
 function renderOverviewTypes(id, mainType) {
-    const countTypes= pokemons[id]['types'].length;
+    const countTypes= pokemonsDisplay[id]['types'].length;
     let types = '';
 
     for (let t = 0; t < countTypes; t++) {
-        const type = pokemons[id]['types'][t]['type']['name'];
+        const type = pokemonsDisplay[id]['types'][t]['type']['name'];
         types += `<div class="pokemon-type ${mainType}-badge">${type}</div>`
     }
     
@@ -109,7 +109,7 @@ function renderTableAbout(height, weight, baseExp, abilities) {
  * @returns The HTML code of the "Stats" table
  */
 function renderTableStats(id, statsMaxValue) {
-    const countStats = pokemons[id]['stats'].length;
+    const countStats = pokemonsDisplay[id]['stats'].length;
     let statsHtml = '';
 
     for (let s = 0; s < countStats; s++) {
@@ -146,11 +146,11 @@ function renderTableStats(id, statsMaxValue) {
  * @returns The HTML code of the list of moves
  */
 function renderMoves(id) {
-    const countMoves = pokemons[id]['moves'].length;
+    const countMoves = pokemonsDisplay[id]['moves'].length;
     let movesHtml = '';
 
     for (let m = 0; m < countMoves; m++) {
-        const move = pokemons[id]['moves'][m]['move']['name'];
+        const move = pokemonsDisplay[id]['moves'][m]['move']['name'];
         movesHtml += `<span class="move">${move}</span>`;
     }
 

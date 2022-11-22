@@ -4,7 +4,7 @@
  * @returns The name of the pokemon
  */
 function getPokemonName(id) {
-    return pokemons[id]['name'];
+    return pokemonsDisplay[id]['name'];
 }
 
 
@@ -14,7 +14,7 @@ function getPokemonName(id) {
  * @returns The ID of the pokemon
  */
 function getPokemonId(id) {
-    return pokemons[id]['id'];
+    return pokemonsDisplay[id]['id'];
 }
 
 
@@ -24,7 +24,7 @@ function getPokemonId(id) {
  * @returns The type of the pokemon
  */
 function getPokemonType(id) {
-    return pokemons[id]['types'][0]['type']['name'];
+    return pokemonsDisplay[id]['types'][0]['type']['name'];
 }
 
 
@@ -45,7 +45,7 @@ function getPokemonTypeImgUrl(id) {
  * @returns The image URL of the pokemon
  */
 function getPokemonImgUrl(id) {
-    return pokemons[id]['sprites']['other']['official-artwork']['front_default'];
+    return pokemonsDisplay[id]['sprites']['other']['official-artwork']['front_default'];
 }
 
 
@@ -55,7 +55,7 @@ function getPokemonImgUrl(id) {
  * @returns The weight of the pokemon
  */
 function getPokemonWeight(id) {
-    return pokemons[id]['weight'] / 10;
+    return pokemonsDisplay[id]['weight'] / 10;
 }
 
 
@@ -65,7 +65,7 @@ function getPokemonWeight(id) {
  * @returns The height of the pokemon
  */
 function getPokemonHeight(id) {
-    return pokemons[id]['height'] / 10;
+    return pokemonsDisplay[id]['height'] / 10;
 }
 
 
@@ -75,7 +75,7 @@ function getPokemonHeight(id) {
  * @returns The base experience of the pokemon
  */
 function getPokemonBaseExperience(id) {
-    return pokemons[id]['base_experience'];
+    return pokemonsDisplay[id]['base_experience'];
 }
 
 
@@ -85,11 +85,11 @@ function getPokemonBaseExperience(id) {
  * @returns The abilities of the pokemon
  */
 function getPokemonAbilities(id) {
-    const countAbilities = pokemons[id]['abilities'].length;
+    const countAbilities = pokemonsDisplay[id]['abilities'].length;
     let abilities = '';
 
     for (let a = 0; a < countAbilities; a++) {
-        abilities += pokemons[id]['abilities'][a]['ability']['name'];
+        abilities += pokemonsDisplay[id]['abilities'][a]['ability']['name'];
         if (a < countAbilities - 1) {
             abilities += ', ';
         }
@@ -105,12 +105,12 @@ function getPokemonAbilities(id) {
  * @returns The max value of the stats values
  */
 function getStatsMaxValue(id) {
-    const countStats = pokemons[id]['stats'].length;
+    const countStats = pokemonsDisplay[id]['stats'].length;
     let statsMaxValue = 100;
     let maxValue = 0;
 
     for (let s = 0; s < countStats; s++) {
-        const value = pokemons[id]['stats'][s]['base_stat'];
+        const value = pokemonsDisplay[id]['stats'][s]['base_stat'];
         if (maxValue < value) maxValue = value;
     }
 
@@ -132,9 +132,9 @@ function getPokemonStat(id, statId, statsMaxValue) {
         'value': 0,
         'diagram': 0
     };
-    statEntry['name'] = pokemons[id]['stats'][statId]['stat']['name'];
-    statEntry['value'] = pokemons[id]['stats'][statId]['base_stat'];
-    statEntry['diagram'] = Math.round((pokemons[id]['stats'][statId]['base_stat'] * 100) / statsMaxValue);
+    statEntry['name'] = pokemonsDisplay[id]['stats'][statId]['stat']['name'];
+    statEntry['value'] = pokemonsDisplay[id]['stats'][statId]['base_stat'];
+    statEntry['diagram'] = Math.round((pokemonsDisplay[id]['stats'][statId]['base_stat'] * 100) / statsMaxValue);
 
     return statEntry;
 }
