@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/styles_pokemon-types.css">
+    <link rel="stylesheet" href="./styles/styles_responsive.css">
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./scripts/html-templates.js"></script>
     <script src="./scripts/pokemon-data-reader.js"></script>
@@ -23,7 +24,7 @@
             <img id="img-logo" src="./img/pokedex_logo.png" alt="Logo">
             <span>Pokédex</span>
         </div>
-        <form action="#" onsubmit="doSearch(); return false;" class="input-group my-2">
+        <form action="#" onsubmit="doSearch(); return false;" class="input-group">
             <input type="text" class="form-control" placeholder="Suchen …" required>
             <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

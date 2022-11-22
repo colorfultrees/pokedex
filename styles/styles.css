@@ -36,8 +36,14 @@ header {
     box-shadow: 0px -5px 13px 10px rgb(60 60 60);
 }
 
+svg {
+    margin-bottom: 3px;
+}
+
 .input-group {
     width: 300px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 #brand {
