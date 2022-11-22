@@ -20,8 +20,10 @@ let isSearchActive = false;
 async function init() {
     const container = document.getElementById('main-container');
     container.innerHTML = '';
+    showLoader();
     await loadData();
-    renderOverview();
+    await renderOverview();
+    hideLoader();
 }
 
 
@@ -46,8 +48,10 @@ function removeScrollEvent() {
  */
 async function isEndOfPage() {
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        showLoader();
         await loadData();
-        renderOverview();
+        await renderOverview();
+        hideLoader();
     }
 }
 
@@ -115,6 +119,8 @@ function renderOverview() {
     }
 
     if (!isSearchActive) pokemonsCount = pokemonsDisplay.length;
+
+    return true;
 }
 
 
@@ -321,18 +327,22 @@ function showSearchResult(searchResult) {
 /**
  * Clears the search input field and resets the main window
  */
-function clearSearch() {
+async function clearSearch() {
     const searchField = document.querySelector('form input');
     searchField.value = '';
     searchField.style = '';
 
     if (!isSearchActive) return;
 
+    showLoader();
+
     pokemonsDisplay = [...pokemonsAll]; // Restore the full list
     clearOverview();
-    renderOverview();
+    await renderOverview();
     addScrollEvent();
     isSearchActive = false;
+
+    hideLoader();
 }
 
 
@@ -342,4 +352,22 @@ function clearSearch() {
 function clearOverview() {
     const mainContainer = document.getElementById('main-container');
     mainContainer.innerHTML = '';
+}
+
+
+/**
+ * Shows the loader
+ */
+function showLoader() {
+    const loader = document.getElementById('loader-container');
+    loader.classList.remove('d-none');
+}
+
+
+/**
+ * Hides the loader
+ */
+function hideLoader() {
+    const loader = document.getElementById('loader-container');
+    loader.classList.add('d-none');
 }
