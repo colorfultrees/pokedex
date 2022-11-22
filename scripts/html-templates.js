@@ -1,3 +1,11 @@
+/**
+ * Renders the overview card
+ * @param {number} id The ID of the overview card
+ * @param {text} name The name of the pokemon
+ * @param {text} type The type of the pokemon
+ * @param {text} imgUrl The image URL of the pokemon
+ * @returns The HTML code of the overview card
+ */
 function renderOverviewCard(id, name, type, imgUrl) {
     return `
         <div class="card-overview ${type}-box" onclick="loadDetails(${id})" data-bs-toggle="modal" data-bs-target="#modalDetails">
@@ -12,6 +20,12 @@ function renderOverviewCard(id, name, type, imgUrl) {
 }
 
 
+/**
+ * Renders the type badges
+ * @param {number} id The ID of the overview card
+ * @param {number} mainType The main type (first in the list) of the pokemon
+ * @returns The HTML code of the type badges
+ */
 function renderOverviewTypes(id, mainType) {
     const countTypes= pokemons[id]['types'].length;
     let types = '';
@@ -25,6 +39,11 @@ function renderOverviewTypes(id, mainType) {
 }
 
 
+/**
+ * Renders the name and ID of the pokemon to the modal window
+ * @param {number} id The ID of the overview card
+ * @returns The HTML code of name and poekmon ID
+ */
 function renderModalInfoName(id) {
     const name = getPokemonName(id);
     const pkmonId = getPokemonId(id);
@@ -35,6 +54,11 @@ function renderModalInfoName(id) {
 }
 
 
+/**
+ * Renders the image of the pokemon and the nav buttons to the modal window
+ * @param {number} id The ID of the overview card
+ * @returns The HTML code of the image wrapper
+ */
 function renderModalPokemonImgWrapper(id) {
     const previous = id - 1;
     const next = id + 1;
@@ -48,6 +72,14 @@ function renderModalPokemonImgWrapper(id) {
 }
 
 
+/**
+ * Renders the "About" table
+ * @param {number} height The height of the pokemon
+ * @param {number} weight The weight of the pokemon
+ * @param {number} baseExp The base experience of the pokemon
+ * @param {Array} abilities The list of abilities of the pokemon
+ * @returns The HTML code of the "About" table
+ */
 function renderTableAbout(height, weight, baseExp, abilities) {
     return `
         <tr>
@@ -70,12 +102,18 @@ function renderTableAbout(height, weight, baseExp, abilities) {
 }
 
 
-function renderTableStats(id, upperBaseValue) {
+/**
+ * Renders the "Stats" table
+ * @param {number} id The ID of the overview card
+ * @param {number} statsMaxValue The max value of the stats
+ * @returns The HTML code of the "Stats" table
+ */
+function renderTableStats(id, statsMaxValue) {
     const countStats = pokemons[id]['stats'].length;
     let statsHtml = '';
 
     for (let s = 0; s < countStats; s++) {
-        const stat = getPokemonStat(id, s, upperBaseValue);
+        const stat = getPokemonStat(id, s, statsMaxValue);
         let progBarColor = '';
         if (stat['diagram'] < 50) {
             progBarColor = progressBarColor['low'];
@@ -102,6 +140,11 @@ function renderTableStats(id, upperBaseValue) {
 }
 
 
+/**
+ * Renders the list of moves
+ * @param {number} id The ID of the overview card
+ * @returns The HTML code of the list of moves
+ */
 function renderMoves(id) {
     const countMoves = pokemons[id]['moves'].length;
     let movesHtml = '';
