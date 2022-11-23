@@ -20,10 +20,8 @@ let isSearchActive = false;
 async function init() {
     const container = document.getElementById('main-container');
     container.innerHTML = '';
-    showLoader();
     await loadData();
-    await renderOverview();
-    hideLoader();
+    renderOverview();
 }
 
 
@@ -48,10 +46,8 @@ function removeScrollEvent() {
  */
 async function isEndOfPage() {
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-        showLoader();
         await loadData();
-        await renderOverview();
-        hideLoader();
+        renderOverview();
     }
 }
 
@@ -60,9 +56,11 @@ async function isEndOfPage() {
  * Invokes the loading of the next data block
  */
 async function loadData() {
+    showLoader();
     removeScrollEvent();
     const baseData = await loadPokemonsBaseData();
     await loadPokemonsFullData(baseData);
+    hideLoader();
 }
 
 
@@ -109,6 +107,9 @@ async function loadPokemonsFullData(pokemonsBaseData) {
 function renderOverview() {
     const container = document.getElementById('main-container');
     let start = 0;
+
+    showLoader();
+
     if (!isSearchActive) start = pokemonsCount;
     
     for (let i = start; i < pokemonsDisplay.length; i++) {
@@ -120,7 +121,7 @@ function renderOverview() {
 
     if (!isSearchActive) pokemonsCount = pokemonsDisplay.length;
 
-    return true;
+    hideLoader();
 }
 
 
@@ -334,15 +335,11 @@ async function clearSearch() {
 
     if (!isSearchActive) return;
 
-    showLoader();
-
     pokemonsDisplay = [...pokemonsAll]; // Restore the full list
     clearOverview();
-    await renderOverview();
+    renderOverview();
     addScrollEvent();
     isSearchActive = false;
-
-    hideLoader();
 }
 
 
