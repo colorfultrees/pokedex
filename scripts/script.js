@@ -104,26 +104,40 @@ async function loadPokemonsFullData(pokemonsBaseData) {
 /**
  * Renders the main screen
  */
-function renderOverview() {
+async function renderOverview() {
     const container = document.getElementById('main-container');
     let start = 0;
+    let resolve = false;
 
     showLoader();
 
     if (!isSearchActive) start = pokemonsCount;
     
-    for (let i = start; i < pokemonsDisplay.length; i++) {
-        const name = getPokemonName(i);
-        const type = getPokemonType(i);
-        const imgUrl = getPokemonImgUrl(i);
-        container.innerHTML += renderOverviewCard(i, name, type, imgUrl);
-    }
+    resolve = await renderOverviewAsync(container, start);
 
     if (!isSearchActive) pokemonsCount = pokemonsDisplay.length;
 
     hideLoader();
 }
 
+
+/**
+ * The promise based function for rendering the overview
+ * @param {Object} container The container for the overview
+ * @param {number} start The ID within the array from where to start rendering
+ * @returns 
+ */
+function renderOverviewAsync(container, start) {
+    return new Promise((resolve) => {
+        for (let i = start; i < pokemonsDisplay.length; i++) {
+            const name = getPokemonName(i);
+            const type = getPokemonType(i);
+            const imgUrl = getPokemonImgUrl(i);
+            container.innerHTML += renderOverviewCard(i, name, type, imgUrl);
+        }
+        setTimeout(() => {resolve();}, 0);
+    });
+}
 
 /**
  * Loads details to the modal window
@@ -291,10 +305,11 @@ function doSearch() {
  * @returns An Array with the search result
  */
 function getSearchResult() {
-    const searchTerm = document.querySelector('form input').value;
+    const searchTerm = document.querySelector('form input').value.toLowerCase();
     let searchResult = [];
     searchResult = pokemonsAll.filter((item) => {
-        return item['name'].indexOf(searchTerm) >= 0;
+        const itemName = item['name'].toLowerCase();
+        return itemName.indexOf(searchTerm) >= 0;
     });
     return searchResult;
 }
