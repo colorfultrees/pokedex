@@ -45,9 +45,14 @@ function removeScrollEvent() {
  * Loads the next data block and renders it, if the end of the page is reached
  */
 async function isEndOfPage() {
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    const scrollPos = window.innerHeight + window.scrollY,
+          scrollLowerLimit = document.body.scrollHeight - 150;
+
+    if (scrollPos >= scrollLowerLimit) {
+        removeScrollEvent();
         await loadData();
         renderOverview();
+        addScrollEvent();
     }
 }
 
